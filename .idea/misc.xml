@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/form-login-jpa-springdoc/pom.xml" />
+        <option value="$PROJECT_DIR$/jwt-auth-jpa-springdoc/pom.xml" />
       </list>
     </option>
   </component>
