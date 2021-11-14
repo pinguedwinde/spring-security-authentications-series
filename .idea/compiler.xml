@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="form-login-jpa-springdoc" />
+        <module name="oauth2-login-google-sso" />
         <module name="jwt-auth-jpa-springdoc" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="form-login-jpa-springdoc" options="-parameters" />
       <module name="jwt-auth-jpa-springdoc" options="-parameters" />
+      <module name="oauth2-login-google-sso" options="-parameters" />
     </option>
   </component>
 </project>
