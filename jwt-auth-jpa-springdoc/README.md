@@ -10,7 +10,7 @@ In recent years, frontend is no longer only web pages, but also includes mobile 
 
 Before starting to program, let’s have a brief understanding of the flow we want to implement, as shown in the following figure:
 
-!["Spring Security + JWT Architecture"](imga1.png "Spring Security + JWT Architecture")
+!["Spring Security + JWT Architecture"](image1.png "Spring Security + JWT Architecture")
 
 To implement our flow in Spring Security, the idea is to insert JwtFilter in SecurityFilterChain. It obtains a JWT token from HTTP request header, and verify if the received JWT token is valid. Finally, convert the JWT token into an Authentication object and set it into SecurityContextHolder, which means that this HTTP request or session has been authenticated.
 
