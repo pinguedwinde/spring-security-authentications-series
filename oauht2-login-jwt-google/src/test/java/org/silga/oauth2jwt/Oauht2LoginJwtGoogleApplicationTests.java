@@ -1,4 +1,4 @@
-package org.silga.oauht2jwt;
+package org.silga.oauth2jwt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
