@@ -1,5 +1,6 @@
 package org.silga.oauth2_social_jwt.controller;
 
+import org.silga.oauth2_social_jwt.config.CurrentUser;
 import org.silga.oauth2_social_jwt.dto.LocalUser;
 import org.silga.oauth2_social_jwt.util.GeneralUtils;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +16,8 @@ import java.security.Principal;
 public class UserController {
     @GetMapping("/user/me")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<?> getCurrentUser(Principal principal) {
-        return ResponseEntity.ok(GeneralUtils.buildUserInfo(((LocalUser) principal)));
+    public ResponseEntity<?> getCurrentUser(@CurrentUser LocalUser user) {
+        return ResponseEntity.ok(GeneralUtils.buildUserInfo(user));
     }
 
     @GetMapping("/all")

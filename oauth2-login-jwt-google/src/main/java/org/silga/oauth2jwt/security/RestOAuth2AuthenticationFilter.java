@@ -69,7 +69,7 @@ public class RestOAuth2AuthenticationFilter extends GenericFilterBean {
         this.userDetailsService = userDetailsService;
         this.memberRepository = memberRepository;
         this.authorizationRequestResolver = new DefaultOAuth2AuthorizationRequestResolver(clientRegistrationRepository, BASE_URI);
-        //this.requestMatcher = new AntPathRequestMatcher("/auth/google", HttpMethod.POST.name());
+        //this.requestMatcher = new AntPathRequestMatcher("/oauth2/google", HttpMethod.POST.name());
         this.requestMatcher = new AntPathRequestMatcher(String.format("/%s/{%s}",BASE_URI, REGISTRATION_ID_URI_VARIABLE_NAME), HttpMethod.POST.name());
         init();
     }
@@ -104,7 +104,7 @@ public class RestOAuth2AuthenticationFilter extends GenericFilterBean {
     }
 
     private boolean requireAuthentication(HttpServletRequest request){
-        // check whether the requested URI is /auth/{registrationId}
+        // check whether the requested URI is /oauth2/{registrationId}
         return requestMatcher.matches(request);
     }
 

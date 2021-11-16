@@ -44,17 +44,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final CustomOidcUserService customOidcUserService;
     private final OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
     private final OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler;
+    private final TokenAuthenticationFilter tokenAuthenticationFilter;
 
     public WebSecurityConfig(@Lazy UserDetailsService userDetailsService,
                              @Lazy CustomOAuth2UserService customOAuth2UserService,
                              @Lazy CustomOidcUserService customOidcUserService,
                              OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler,
-                             OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler) {
+                             OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler,
+                             @Lazy TokenAuthenticationFilter tokenAuthenticationFilter) {
         this.userDetailsService = userDetailsService;
         this.customOAuth2UserService = customOAuth2UserService;
         this.customOidcUserService = customOidcUserService;
         this.oAuth2AuthenticationSuccessHandler = oAuth2AuthenticationSuccessHandler;
         this.oAuth2AuthenticationFailureHandler = oAuth2AuthenticationFailureHandler;
+        this.tokenAuthenticationFilter = tokenAuthenticationFilter;
     }
 
     @Autowired
@@ -98,12 +101,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(oAuth2AuthenticationFailureHandler);
 
         // Add our custom Token based authentication filter
-        http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-    }
-
-    @Bean
-    public TokenAuthenticationFilter tokenAuthenticationFilter() {
-        return new TokenAuthenticationFilter();
+        http.addFilterBefore(tokenAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     /*

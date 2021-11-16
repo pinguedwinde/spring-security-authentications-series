@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/oauth-login-google-sso/pom.xml" />
         <option value="$PROJECT_DIR$/oauth2-login-google-sso/pom.xml" />
         <option value="$PROJECT_DIR$/oauht2-login-jwt-google/pom.xml" />
+        <option value="$PROJECT_DIR$/oauth2-social-login-jwt/pom.xml" />
+        <option value="$PROJECT_DIR$/oauth2-login-jwt-google/pom.xml" />
       </list>
     </option>
   </component>
